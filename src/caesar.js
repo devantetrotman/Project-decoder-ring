@@ -7,7 +7,24 @@ const caesarModule = (function () {
   // you can add any code you want within this function scope
 
   function caesar(input, shift, encode = true) {
-    console.log("testing this thang");
+    let encoded = [];
+    let message;
+    if (shift == 0 || shift < -25 || shift > 25){
+      return false
+    }
+    else{
+      for (let i = 0; i < input.length; i++){
+        let ascii = input[i].charCodeAt();
+        if (ascii == 32){break;}
+        let shiftedValue = ascii + shift;
+        let codeLetter = String.fromCharCode(shiftedValue);
+        encoded.push(codeLetter);
+      }
+    }
+    message = encoded.join("");
+    console.log(encoded);
+    console.log(message);
+    return message
   }
 
   return {
